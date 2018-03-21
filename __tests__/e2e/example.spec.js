@@ -1,21 +1,17 @@
 import puppeteer from 'puppeteer';
 
-jest.setTimeout(10000);
+jest.setTimeout(30000);
 
 describe('Example website', () => {
   let page;
   let browser;
-  const width = 1920;
-  const height = 1080;
 
   beforeAll(async () => {
     browser = await puppeteer.launch({
       headless: true,
-      slowMo: 80,
-      args: [`--window-size=${width},${height}`]
+      slowMo: 80
     });
     page = await browser.newPage();
-    await page.setViewport({ width, height });
     await page.goto('https://example.org');
   });
 
@@ -35,8 +31,6 @@ describe('Example website', () => {
   });
 
   test('header', async () => {
-
-
     const header = await page.$eval('h1', (el) => el.textContent);
 
     expect(header).toEqual('Example Domain');
