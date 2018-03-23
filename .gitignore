@@ -1,2 +1,10 @@
+# Folders
 dist
 node_modules
+
+# Error logs
+yarn-error.log
+
+# Lock files
+package-lock.json
+yarn.lock

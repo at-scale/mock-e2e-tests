@@ -1,7 +1,5 @@
 import puppeteer from 'puppeteer';
 
-jest.setTimeout(30000);
-
 describe('Example website', () => {
   let page;
   let browser;
@@ -19,7 +17,7 @@ describe('Example website', () => {
     const image = await page.screenshot();
 
     expect(image).toMatchImageSnapshot({
-      failureThreshold: '0.01',
+      failureThreshold: '0.05',
       failureThresholdType: 'percent'
     });
   });
